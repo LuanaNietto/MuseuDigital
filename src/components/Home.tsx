@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import {
-  GlobalStyle, FullPage, ContentBox, Dropdown, DropdownButton, DropdownMenu, DropdownMenuItem,
+import {FullPage, ContentBox, Dropdown, DropdownButton, DropdownMenu, DropdownMenuItem,
 ColLeft, ColRight, MiniTitle, Title, AboutImg, AboutText, ConhecaContainer, ConhecaTitle, Footer, FooterBlock, Divider
 } from "../styles/GlobalStyle";
 import decorImg from "../img/carrossel/icara1970.jpg";
@@ -100,7 +99,7 @@ const Home: React.FC = () => {
           </AboutText>
         </ColLeft>
         <ColRight>
-          <AboutImg src={decorImg} alt="Peças de decoração" />
+          <AboutImg src={decorImg} alt="Centro de Içara - 1970" />
         </ColRight>
       </ContentBox>
     </FullPage>

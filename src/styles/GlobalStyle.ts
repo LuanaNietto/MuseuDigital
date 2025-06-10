@@ -6,15 +6,14 @@ export const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap');
   
 `;
-export const Header = styled.header`
-  width: 100%;
-  background: #e1e1e1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 22px 36px 0 36px;
-  font-family: 'Helvetica world', 'Helvetica Neue', Arial, sans-serif;
+
+export const Overlay = styled.div`
+  min-height: 100%;
+  background: #222222;
+  margin: 0;
+  font-family: 'Helvetica world', sans-serif;
 `;
+
 //-----------------------HOME PAGE----------------------------
 export const FullPage = styled.div`
   min-height: 100vh;
@@ -169,8 +168,6 @@ export const Title = styled.h1`
   }
 `;
 
-//-----------------------HOME PAGE----------------------------
-
 export const AboutImg = styled.img`
   width: 840px;
   max-width: 850px;
@@ -187,10 +184,9 @@ export const AboutText = styled.p`
   max-width: 920px;
   text-align: left;
 `;
-
 // --------------------------------------------------------------------
 
-// ACERVO
+// ACERVO----------------------------------------------------------------
 export const ConhecaContainer = styled.section`
   max-width: 100%px;
   margin: 0px auto 0 auto;
@@ -236,54 +232,9 @@ export const ConhecaBloco = styled.a`
     box-shadow: 0 3px 16px #bbb8;
   }
 `;
-
 // ---------------------------------------------------------------------
 
-export const Block = styled.div`
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  overflow: hidden;
-  padding: 1rem;
-  text-align: center;
-  backdrop-filter: blur(5px);
-`;
-
-export const Image = styled.img`
-  max-width: 100%;
-  border-radius: 8px;
-`
-
-export const Nav = styled.nav`
-  display: flex;
-  gap: 16px;
-`;
-
-// Carousel
-export const MainImageContainer = styled.div`
-  width: 100%;
-  max-width: 2000px;
-  aspect-ratio: 16/7;
-  margin: 48px auto 68px auto;
-  position: relative;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 8px 26px rgba(30, 41, 59, 0.18);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const ImageSource = styled.span`
-  position: absolute;
-  bottom: 10px;
-  right: 18px;
-  color: #f0f2f7;
-  font-size: 0.85rem;
-  opacity: 0.7;
-  text-shadow: 0 1px 4px #18232db8;
-`;
-
-// Sobre (Exposição: Memórias)
+// Sobre-----------------------------------------------
 export const SobreSection = styled.section`
   max-width: 100%;
   margin: 5px 300px 5px 300px;
@@ -311,19 +262,19 @@ export const SobreText = styled.p`
 //-------------------- GALERIA
 export const Gallery = styled.section`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);     // 3 colunas
-  gap: 35px;                                 // espaçamento entre elas
-  width: 100%;                               // 80% da tela, se preferir use "80%"
-  max-width: 70%;                         // opcional, limite o máximo
-  margin: 38px auto 28px auto;               // centraliza o bloco na tela
+  grid-template-columns: repeat(3, 1fr);   
+  gap: 35px;                              
+  width: 100%;                              
+  max-width: 70%;                    
+  margin: 38px auto 28px auto;              
   box-sizing: border-box;
   padding-bottom: 40px; // espaçamento inferior
 
   @media (max-width: 1000px) {
-    grid-template-columns: repeat(2, 1fr);   // 2 colunas no tablet
+    grid-template-columns: repeat(2, 1fr);  
   }
   @media (max-width: 650px) {
-    grid-template-columns: 1fr;              // 1 coluna em telas pequenas/mobile
+    grid-template-columns: 1fr;             
   }
 `;
 
@@ -337,7 +288,7 @@ export const GalleryBlock = styled.div`
 export const GalleryImageWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 600px;    // <--- deve casar com a height da imagem!
+  height: 600px;   
   border-radius: 5px;
   overflow: hidden;
 `;
@@ -477,23 +428,6 @@ export const Divider = styled.hr`
 
 // MEMORIAS---------------------------------------------------------------------
 
-export const About = styled.section`
-  margin: 28px auto 26px auto;
-  max-width: 600px;
-  text-align: left;
-  & > h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #282828;
-    margin-bottom: 8px;
-  }
-  & > p {
-    color: #333;
-    font-size: 1.15rem;
-    line-height: 1.5;
-  }
-`;
-
 
 // ----------------FOOTER-------------------
 export const Footer = styled.footer`
@@ -510,42 +444,6 @@ export const FooterBlock = styled.div`
 `;
 
 // ----------------FOOTER-------------------
-
-export const Overlay = styled.div`
-  min-height: 100%;
-  background: #222222;
-  margin: 0;
-  font-family: 'Helvetica world', sans-serif;
-`;
-
-export const Logo = styled.div`
-  font-size: 1.5rem;
-  font-weight: bold;
-  letter-spacing: 1.5px;
-`;
-
-export const NavMenu = styled.nav`
-  display: flex;
-  gap: 16px;
-`;
-
-export const NavButton = styled.a`
-  background: transparent;
-  color: #fff;
-  font-weight: 500;
-  border: none;
-  padding: 6px 20px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-size: 1.13rem;
-  cursor: pointer;
-  transition: background .18s, color .18s;
-  &:hover, &:focus {
-    background: #fff;
-    color: #17273c;
-    text-decoration: underline;
-  }
-`;
 
 // Carrossel central grande (tipo Bootstrap)
 export const MainCarousel = styled.section`
@@ -573,7 +471,7 @@ export const CarouselImageWrapper = styled.div`
 `;
 export const CarouselImage = styled.img`
   width: 100%;
-  height: 100%; /* aumente junto */
+  height: 100%;
   object-fit: cover;
   display: block;
 `;
@@ -607,16 +505,6 @@ export const CarouselActions = styled.div`
   pointer-events: auto;
 `;
 
-// Bloco principal Sobre+Galeria
-export const SectionBlock = styled.section`
-  background: #fff;
-  border-radius: 13px;
-  padding: 22px 22px 22px 22px;
-  width: 78vw;
-  max-width: 1170px;
-  margin: 36px auto 38px auto;
-  box-shadow: 0 2px 12px #ececec;
-`;
 // ----------------------------------FEATURETTE---------------------------------
 export const Featurette = styled.section<{ invert?: boolean }>`
   display: flex;
