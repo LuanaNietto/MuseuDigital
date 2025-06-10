@@ -1,7 +1,8 @@
 import React, {useState, useEffect, useRef} from 'react';
-import { SobreSection, SobreTitle, SobreText, Gallery, GalleryBlock, GalleryImage, GalleryTitle,
-Overlay, ModalCloseButton, ModalImage, ModalOverlay, GalleryOverlay, GalleryAuthor, GalleryDesc, GalleryOverlayContent, GalleryImageWrapper, ExpandButton, Divider,
-ColLeft, MiniTitle, Dropdown, DropdownButton, DropdownMenu, DropdownMenuItem, Footer, FooterBlock} from '../styles/GlobalStyle';
+import { SobreSection, SobreTitle, SobreText, Overlay, Divider,
+ColLeft, MiniTitle, Dropdown, DropdownButton, DropdownMenu, DropdownMenuItem} from '../styles/GlobalStyle';
+import { GalleryUtils, useGalleryModal } from '../components/utils/GalleryUtils';
+import { ContactFooter } from './utils/Footer';
 
 import Imagem1 from '../img/FestaMelancia/IMAGEM 1.jpg';
 import Imagem2 from '../img/FestaMelancia/IMAGEM 2.jpg';
@@ -26,28 +27,21 @@ const galleryItems2 = [
 
 
 const FestaMelancia = () => {
-   const [dropdownOpen, setDropdownOpen] = useState(false);
-    const refDropdown = useRef<HTMLDivElement | null>(null);
+  const { modalOpen, modalImg, openModal, closeModal } = useGalleryModal();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const refDropdown = useRef<HTMLDivElement | null>(null);
   
-    const [modalOpen, setModalOpen] = useState(false);
-    const [modalImg, setModalImg] = useState<{ src: string, alt: string } | null>(null);
-  
-    const openModal = (src: string, alt: string) => {
-      setModalImg({ src, alt });
-      setModalOpen(true);
-    };
-    const closeModal = () => setModalOpen(false);
-  
-    // Fecha dropdown ao clicar fora
-    useEffect(() => {
-      function handleClickOutside(event: MouseEvent) {
-        if (refDropdown.current && !refDropdown.current.contains(event.target as Node)) {
-          setDropdownOpen(false);
-        }
+  // Fecha dropdown ao clicar fora
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (refDropdown.current && !refDropdown.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
       }
-      document.addEventListener("mousedown", handleClickOutside);
-      return () => document.removeEventListener("mousedown", handleClickOutside);
-    }, []);
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <Overlay>
       <ColLeft>
@@ -77,46 +71,9 @@ const FestaMelancia = () => {
           
           </SobreText>
       </SobreSection>
-      <Gallery>
-        {galleryItems.map((item, i) => (
-            <GalleryBlock key={i}>
-            <GalleryImageWrapper>
-              <GalleryImage
-                src={item.src}
-                alt={item.name}
-                loading="lazy"
-              />
-              <GalleryOverlay>
-                <GalleryOverlayContent>
-                  <GalleryTitle>{item.name}</GalleryTitle>
-                  <GalleryAuthor>Por: {item.autor}</GalleryAuthor>
-                  <GalleryDesc>{item.desc}</GalleryDesc>
-                </GalleryOverlayContent>
-              </GalleryOverlay>
-              <ExpandButton onClick={() => openModal(item.src, item.name)} aria-label="Expandir imagem">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#222"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  style={{ display: 'inline', verticalAlign: 'middle' }}
-                >
-                  <polyline points="15 3 21 3 21 9"/>
-                  <polyline points="9 21 3 21 3 15"/>
-                  <line x1="21" y1="3" x2="14" y2="10"/>
-                  <line x1="3" y1="21" x2="10" y2="14"/>
-                </svg>
-              </ExpandButton>
 
-            </GalleryImageWrapper>  
-          </GalleryBlock>
-        ))}
-      </Gallery>
+      {GalleryUtils.renderGallery(galleryItems, openModal)}
+
       <SobreSection>
         <SobreTitle>Caracteríscas Marcadas</SobreTitle>
         <Divider />
@@ -125,71 +82,14 @@ const FestaMelancia = () => {
          Competições e atividades tradicionais: Pesagem de maior melancia, leilões, concursos de quem vem mais melancia, acertar o milho no balaio, Pedal da Melancia, Bailes com música ao vivo, Exposição agropecuária e cultural, Feira de artesanato e produtos locais, etc.
         </SobreText>
       </SobreSection>
-       <Gallery>
-        {galleryItems2.map((item, i) => (
-            <GalleryBlock key={i}>
-            <GalleryImageWrapper>
-              <GalleryImage
-                src={item.src}
-                alt={item.name}
-                loading="lazy"
-              />
-              <GalleryOverlay>
-                <GalleryOverlayContent>
-                  <GalleryTitle>{item.name}</GalleryTitle>
-                  <GalleryAuthor>Por: {item.autor}</GalleryAuthor>
-                  <GalleryDesc>{item.desc}</GalleryDesc>
-                </GalleryOverlayContent>
-              </GalleryOverlay>
-              <ExpandButton onClick={() => openModal(item.src, item.name)} aria-label="Expandir imagem">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#222"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  style={{ display: 'inline', verticalAlign: 'middle' }}
-                >
-                  <polyline points="15 3 21 3 21 9"/>
-                  <polyline points="9 21 3 21 3 15"/>
-                  <line x1="21" y1="3" x2="14" y2="10"/>
-                  <line x1="3" y1="21" x2="10" y2="14"/>
-                </svg>
-              </ExpandButton>
-            </GalleryImageWrapper>  
-          </GalleryBlock>
-        ))}
-      </Gallery>
 
-      {/* Modal */}
-      {modalOpen && modalImg && (
-        <ModalOverlay onClick={closeModal}>
-          <ModalCloseButton
-            onClick={e => { e.stopPropagation(); closeModal(); }}
-            aria-label="Fechar"
-            title="Fechar"
-          >
-            &times;
-          </ModalCloseButton>
-          <ModalImage
-            src={modalImg.src}
-            alt={modalImg.alt}
-            onClick={e => e.stopPropagation()}
-          />
-        </ModalOverlay>
-      )}
-      {/* CONTATO */}
-      <Footer id="contato" style={{ backgroundColor: "#e1e1e1", color: "#222" }}>
-        <FooterBlock>
-          <h2>Contato</h2>
-          <p>Email: contato@museudigital.com</p>
-          <p>Telefone: (11) 1234-5678</p>
-        </FooterBlock>
-      </Footer>  
+      {GalleryUtils.renderGallery(galleryItems2, openModal)}
+      {GalleryUtils.renderModal(modalOpen, modalImg, closeModal)}
+      <ContactFooter
+        id="contato"
+        backgroundColor="#e1e1e1"
+        textColor="#222"
+      />
     </Overlay>
      
   );

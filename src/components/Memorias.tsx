@@ -1,31 +1,32 @@
 import React, {useState, useEffect, useRef} from 'react';
-import { SobreSection, SobreTitle, SobreText, Gallery, GalleryBlock, GalleryImage, GalleryTitle,
-Overlay, ModalCloseButton, ModalImage, ModalOverlay, GalleryOverlay, GalleryAuthor, GalleryDesc, GalleryOverlayContent, GalleryImageWrapper, ExpandButton, Divider,
-ColLeft, MiniTitle, Dropdown, DropdownButton, DropdownMenu, DropdownMenuItem, Footer, FooterBlock} from '../styles/GlobalStyle';
+import { SobreSection, SobreTitle, SobreText, Overlay, Divider,
+ColLeft, MiniTitle, Dropdown, DropdownButton, DropdownMenu, DropdownMenuItem} from '../styles/GlobalStyle';
+import { GalleryUtils, useGalleryModal } from '../components/utils/GalleryUtils';
+import { ContactFooter } from './utils/Footer';
 
-import Manoel from '../img/Manoel1.jpeg';
-import Nilda from '../img/Nilda1.jpeg';
-import Eli from '../img/Eli 1.jpeg';
-import Nega from '../img/nega 1.jpeg';
-import Avo from '../img/avo.jpeg';
-import Baby from '../img/baby.jpeg';
-import Bebe from '../img/bebe.jpg';
-import Bebe3 from '../img/bebe3.jpg';
-import Bombeiro from '../img/bombeiro.jpg';
-import Campo from '../img/campo.jpeg';
-import Carroça from '../img/carroça.jpeg';
-import Carroça2 from '../img/carroça2.jpg';
-import Casa from '../img/casa.jpeg';
-import Casamento from '../img/casamento.jpeg';
-import Casamento2 from '../img/casamento2.jpeg';
-import Casamento3 from '../img/casamento3.jpeg';
-import Cavalo from '../img/cavalo.jpeg';
-import Famili from '../img/familia.jpeg';
-import Festa from '../img/festa.jpeg';
-import Mae from '../img/mae.jpg';
-import Rincao from '../img/rincao.jpg';
-import Passeio from '../img/passeio.jpeg';
-import Soldado from '../img/soldado.jpeg';
+import Manoel from '../img/memorias/Manoel1.jpeg';
+import Nilda from '../img/memorias/Nilda1.jpeg';
+import Eli from '../img/memorias/Eli 1.jpeg';
+import Nega from '../img/memorias/nega 1.jpeg';
+import Avo from '../img/memorias/avo.jpeg';
+import Baby from '../img/memorias/baby.jpeg';
+import Bebe from '../img/memorias/bebe.jpg';
+import Bebe3 from '../img/memorias/bebe3.jpg';
+import Bombeiro from '../img/memorias/bombeiro.jpg';
+import Campo from '../img/memorias/campo.jpeg';
+import Carroça from '../img/memorias/carroça.jpeg';
+import Carroça2 from '../img/memorias/carroça2.jpg';
+import Casa from '../img/memorias/casa.jpeg';
+import Casamento from '../img/memorias/casamento.jpeg';
+import Casamento2 from '../img/memorias/casamento2.jpeg';
+import Casamento3 from '../img/memorias/casamento3.jpeg';
+import Cavalo from '../img/memorias/cavalo.jpeg';
+import Famili from '../img/memorias/familia.jpeg';
+import Festa from '../img/memorias/festa.jpeg';
+import Mae from '../img/memorias/mae.jpg';
+import Rincao from '../img/memorias/rincao.jpg';
+import Passeio from '../img/memorias/passeio.jpeg';
+import Soldado from '../img/memorias/soldado.jpeg';
 
 const galleryItems = [
   { src: Manoel, name: "Manoel", autor: "Manoel", desc: "Manoel, um dos primeiros moradores da região, sempre foi uma figura central na comunidade." },
@@ -55,28 +56,21 @@ const galleryItems = [
 
 
 const Memorias = () => {
-   const [dropdownOpen, setDropdownOpen] = useState(false);
-    const refDropdown = useRef<HTMLDivElement | null>(null);
+  const { modalOpen, modalImg, openModal, closeModal } = useGalleryModal();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const refDropdown = useRef<HTMLDivElement | null>(null);
   
-    const [modalOpen, setModalOpen] = useState(false);
-    const [modalImg, setModalImg] = useState<{ src: string, alt: string } | null>(null);
-  
-    const openModal = (src: string, alt: string) => {
-      setModalImg({ src, alt });
-      setModalOpen(true);
-    };
-    const closeModal = () => setModalOpen(false);
-  
-    // Fecha dropdown ao clicar fora
-    useEffect(() => {
-      function handleClickOutside(event: MouseEvent) {
-        if (refDropdown.current && !refDropdown.current.contains(event.target as Node)) {
-          setDropdownOpen(false);
-        }
+  // Fecha dropdown ao clicar fora
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (refDropdown.current && !refDropdown.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
       }
-      document.addEventListener("mousedown", handleClickOutside);
-      return () => document.removeEventListener("mousedown", handleClickOutside);
-    }, []);
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <Overlay>
       <ColLeft>
@@ -108,73 +102,14 @@ const Memorias = () => {
           preservando narrativas únicas para hoje e para as futuras gerações.
         </SobreText>
       </SobreSection>
-      <Gallery>
-        {galleryItems.map((item, i) => (
-            <GalleryBlock key={i}>
-            <GalleryImageWrapper>
-              <GalleryImage
-                src={item.src}
-                alt={item.name}
-                loading="lazy"
-              />
-              <GalleryOverlay>
-                <GalleryOverlayContent>
-                  <GalleryTitle>{item.name}</GalleryTitle>
-                  <GalleryAuthor>Por: {item.autor}</GalleryAuthor>
-                  <GalleryDesc>{item.desc}</GalleryDesc>
-                </GalleryOverlayContent>
-              </GalleryOverlay>
-              <ExpandButton onClick={() => openModal(item.src, item.name)} aria-label="Expandir imagem">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#222"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  style={{ display: 'inline', verticalAlign: 'middle' }}
-                >
-                  <polyline points="15 3 21 3 21 9"/>
-                  <polyline points="9 21 3 21 3 15"/>
-                  <line x1="21" y1="3" x2="14" y2="10"/>
-                  <line x1="3" y1="21" x2="10" y2="14"/>
-                </svg>
-              </ExpandButton>
+      {GalleryUtils.renderGallery(galleryItems, openModal)}
+      {GalleryUtils.renderModal(modalOpen, modalImg, closeModal)}
 
-            </GalleryImageWrapper>  
-          </GalleryBlock>
-        ))}
-      </Gallery>
-
-      {/* Modal */}
-      {modalOpen && modalImg && (
-        <ModalOverlay onClick={closeModal}>
-          <ModalCloseButton
-            onClick={e => { e.stopPropagation(); closeModal(); }}
-            aria-label="Fechar"
-            title="Fechar"
-          >
-            &times;
-          </ModalCloseButton>
-          <ModalImage
-            src={modalImg.src}
-            alt={modalImg.alt}
-            onClick={e => e.stopPropagation()}
-          />
-        </ModalOverlay>
-      )}
-
-      {/* CONTATO */}
-      <Footer id="contato" style={{ backgroundColor: "#e1e1e1", color: "#222" }}>
-        <FooterBlock>
-          <h2>Contato</h2>
-          <p>Email: contato@museudigital.com</p>
-          <p>Telefone: (11) 1234-5678</p>
-        </FooterBlock>
-      </Footer>  
+      <ContactFooter
+        id="contato"
+        backgroundColor="#e1e1e1"
+        textColor="#222"
+      />
     </Overlay>
      
   );

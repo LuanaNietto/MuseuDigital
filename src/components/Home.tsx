@@ -1,16 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
 import {FullPage, ContentBox, Dropdown, DropdownButton, DropdownMenu, DropdownMenuItem,
-ColLeft, ColRight, MiniTitle, Title, AboutImg, AboutText, ConhecaContainer, ConhecaTitle, Footer, FooterBlock, Divider
+ColLeft, ColRight, MiniTitle, Title, AboutImg, AboutText, ConhecaContainer, ConhecaTitle, Divider
 } from "../styles/GlobalStyle";
-import decorImg from "../img/carrossel/icara1970.jpg";
-
 import { AcervoFeaturette } from './AcervoFeaturette';
+import { ContactFooter } from './utils/Footer';
 
 import EsporteClube from '../img/carrossel/EsporteClubeBrasil50.jpeg';
 import FestaTainha from '../img/festaTainha/img 3 - festa da tainha.png';
 import Melancia from '../img/FestaMelancia/melancia.jpeg';
 import Agromel from '../img/FestadoMel/images.jpeg';
 import Donato from '../img/FestaSaoDonato/saodonato.jpg';
+import decorImg from "../img/carrossel/icara1970.jpg";
 
 
 const acervoBlocks = [
@@ -81,7 +81,7 @@ const Home: React.FC = () => {
                   <a href="#acervo">Acervo</a>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <a href="#contato">Contato</a>
+                  <a href="#contato">Informações do site</a>
                 </DropdownMenuItem>
               </DropdownMenu>
             </Dropdown>
@@ -120,14 +120,11 @@ const Home: React.FC = () => {
 
       <a href="/" style={{ marginLeft: '30px' }}> Voltar para cima </a>
     </ConhecaContainer>
-    {/* CONTATO */}
-    <Footer id="contato">
-      <FooterBlock>
-        <h2>Contato</h2>
-        <p>Email: contato@museudigital.com</p>
-        <p>Telefone: (11) 1234-5678</p>
-      </FooterBlock>
-    </Footer>
+    <ContactFooter
+      id="contato"
+      backgroundColor="#222"
+      textColor="#e1e1e1"
+    />
     </>
   );
 }
