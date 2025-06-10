@@ -249,16 +249,22 @@ export const ConhecaContainer = styled.section`
   }
   
   @media (max-width: 768px) {
-    margin-top: 900px;
+    margin-top: 1200px;
     padding: 10px;
   }
 
-  // @media (max-width: 450px) {
+  // @media (max-width: 768px && max-height: 768px) {
+  //   margin-top: 1100px;
+  //   padding: 10px;
+  // }
+
+  // @media (max-width: 450px && max-height: 965px) {
   //   margin-top: 800px;
   // }  
-  // @media (max-width: 390px) {
-  //   margin-top: 1350px;
-  // }            
+
+  @media (max-width: 390px) {
+    margin-top: 1600px;
+  }            
 `;
 
 export const ConhecaTitle = styled.h3`
