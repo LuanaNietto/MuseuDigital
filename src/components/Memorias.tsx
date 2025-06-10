@@ -114,7 +114,7 @@ const Memorias = () => {
           preservando narrativas únicas para hoje e para as futuras gerações.
         </SobreText>
         <Divider />
-        <SobreText style={{ fontSize: "1em", lineHeight: "1.6" }}><strong>
+        <SobreText style={{ fontSize: "1em", lineHeight: "1.6", textAlign: 'center' }}><strong>
           Fotos do acervo pessoal da turma 202. Uma coleção de vivências e histórias de içara e região.
           </strong>
         </SobreText>
