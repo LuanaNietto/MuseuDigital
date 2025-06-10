@@ -27,6 +27,18 @@ export const Overlay = styled.div`
   font-family: 'Helvetica world', sans-serif;
 `;
 
+
+export const BackLink = styled.a`
+  margin: 20px;
+  display: inline-block;
+  
+  @media (max-width: 768px) {
+    margin: 10px auto;
+    display: block;
+    text-align: center;
+  }
+`;
+
 //-----------------------HOME PAGE----------------------------
 export const FullPage = styled.div`
   min-height: 100%;
@@ -56,6 +68,7 @@ export const ContentBox = styled.div`
   align-items: stretch;
   box-shadow: none;
 
+  // overflow: hidden;
    @media (max-width: 1400px) {
     flex-direction: column;
     width: 100vw;
@@ -64,7 +77,7 @@ export const ContentBox = styled.div`
     align-items: center;
     padding: 16px 0;
   }  
-  @media (max-width: 1200px) {
+  @media (max-width: 768px) {
     flex-direction: column;
     width: 98vw;
     height: auto;
@@ -72,6 +85,7 @@ export const ContentBox = styled.div`
     align-items: center;
     padding: 16px 0;
   }  
+
 `;
 
 export const Dropdown = styled.div`
@@ -104,6 +118,11 @@ export const DropdownMenu = styled.ul<{ open: boolean }>`
   margin: 0;
   z-index: 5;
   list-style: none;
+
+   @media (max-width: 768px) {
+    width: 100%;
+    left: 0;
+  }
 `;
 
 export const DropdownMenuItem = styled.li`
@@ -221,29 +240,25 @@ export const ConhecaContainer = styled.section`
     margin-top: 200px;
   }
 
-  @media (max-width: 1280px) {
-    margin-top: 400px;
+   @media (max-width: 1280px) {
+    margin-top: 530px;
+  }
+
+  @media (max-width: 992px) {
+    margin-top: 650px;
   }
   
-  @media (max-width: 1050px) {
-    margin-top: 550px;
+  @media (max-width: 768px) {
+    margin-top: 900px;
+    padding: 10px;
   }
-  @media (max-width: 950px) {
-    margin-top: 300px;
-  }  
-   @media (max-width: 700px) {
-    margin-top: 500px;
-  }  
 
-   @media (max-width: 550px) {
-    margin-top: 600px;
-  }   
-  @media (max-width: 450px) {
-    margin-top: 800px;
-  }  
-  @media (max-width: 390px) {
-    margin-top: 1350px;
-  }            
+  // @media (max-width: 450px) {
+  //   margin-top: 800px;
+  // }  
+  // @media (max-width: 390px) {
+  //   margin-top: 1350px;
+  // }            
 `;
 
 export const ConhecaTitle = styled.h3`

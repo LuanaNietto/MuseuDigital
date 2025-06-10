@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import {FullPage, ContentBox, Dropdown, DropdownButton, DropdownMenu, DropdownMenuItem,
-ColLeft, ColRight, MiniTitle, Title, AboutImg, AboutText, ConhecaContainer, ConhecaTitle
+ColLeft, ColRight, MiniTitle, Title, AboutImg, AboutText, ConhecaContainer, ConhecaTitle, BackLink
 } from "../styles/GlobalStyle";
 import { AcervoFeaturette } from './AcervoFeaturette';
 import { ContactFooter } from './utils/Footer';
@@ -117,7 +117,7 @@ const Home: React.FC = () => {
             />
           ))}
 
-      <a href="/" style={{ marginLeft: '30px' }}> Voltar para cima </a>
+      <BackLink href="/">Voltar para cima</BackLink>
     </ConhecaContainer>
     <ContactFooter
       id="contato"
