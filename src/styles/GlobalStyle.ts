@@ -13,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 100%;
     width: 100%;
     overflow-x: hidden; /* Impede scroll horizontal */
+    background: #e1e1e1;
   }
 
 `;
@@ -38,6 +39,7 @@ export const FullPage = styled.div`
   justify-content: center;
   align-items: center;
   font-family: 'Helvetica world', sans-serif;
+  margin-bottom: 50px;
 `;
 
 export const ContentBox = styled.div`
@@ -54,14 +56,22 @@ export const ContentBox = styled.div`
   align-items: stretch;
   box-shadow: none;
 
-  @media (max-width: 800px) {
+   @media (max-width: 1400px) {
+    flex-direction: column;
+    width: 100vw;
+    height: 100%;
+    max-height: 100%;
+    align-items: center;
+    padding: 16px 0;
+  }  
+  @media (max-width: 1200px) {
     flex-direction: column;
     width: 98vw;
     height: auto;
-    max-height: none;
+    max-height: 100%;
     align-items: center;
     padding: 16px 0;
-  }
+  }  
 `;
 
 export const Dropdown = styled.div`
@@ -206,6 +216,34 @@ export const ConhecaContainer = styled.section`
   width: 100vw;
   background: #e1e1e1;
   font-family: 'Helvetica world', sans-serif;
+
+  @media (max-width: 1400px) {
+    margin-top: 200px;
+  }
+
+  @media (max-width: 1280px) {
+    margin-top: 400px;
+  }
+  
+  @media (max-width: 1050px) {
+    margin-top: 550px;
+  }
+  @media (max-width: 950px) {
+    margin-top: 300px;
+  }  
+   @media (max-width: 700px) {
+    margin-top: 500px;
+  }  
+
+   @media (max-width: 550px) {
+    margin-top: 600px;
+  }   
+  @media (max-width: 450px) {
+    margin-top: 800px;
+  }  
+  @media (max-width: 390px) {
+    margin-top: 1350px;
+  }            
 `;
 
 export const ConhecaTitle = styled.h3`
@@ -251,8 +289,20 @@ export const ConhecaBloco = styled.a`
 // Sobre-----------------------------------------------
 export const SobreSection = styled.section`
   max-width: 100%;
-  margin: 5px 300px 5px 300px;
+  margin: 5px 250px 5px 250px;
   text-align: center;
+  @media (max-width: 600px) {
+    margin: 18px 50px 18px 50px;
+  }
+  @media (max-width: 900px) {
+    margin: 18px 100px 18px 100px;
+  }
+  @media (max-width: 1200px) {
+    margin: 18px 100px 18px 100px;
+  }
+   @media (max-width: 1600px) {
+    margin: 18px 100px 18px 100px;
+  }  
 `;
 
 export const SobreTitle = styled.h2`
@@ -262,7 +312,6 @@ export const SobreTitle = styled.h2`
   color: #e1e1e1;
   @media (max-width: 900px) {
     margin: 18px 0 28px;
-    text-align: left;
     font-size: 2rem;
   }
 `;

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import {FullPage, ContentBox, Dropdown, DropdownButton, DropdownMenu, DropdownMenuItem,
-ColLeft, ColRight, MiniTitle, Title, AboutImg, AboutText, ConhecaContainer, ConhecaTitle, Divider
+ColLeft, ColRight, MiniTitle, Title, AboutImg, AboutText, ConhecaContainer, ConhecaTitle
 } from "../styles/GlobalStyle";
 import { AcervoFeaturette } from './AcervoFeaturette';
 import { ContactFooter } from './utils/Footer';
@@ -105,7 +105,6 @@ const Home: React.FC = () => {
     </FullPage>
     {/* CONHEÇA NOSSO ACERVO */}
     <ConhecaContainer id="acervo">
-      <Divider />
       <ConhecaTitle>Conheça nosso acervo </ConhecaTitle>
         {acervoBlocks.map((bloco, i) => (
             <AcervoFeaturette
