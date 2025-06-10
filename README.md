@@ -1,3 +1,6 @@
+# MuseuDigital
+Um museu digital para a cidade de Içara. Esse museu foi feito em conjunto com a disciplina de história, orientada pelo professor Natan de Oliveira Rezende e desenvolvido por mim, para turma 202, do colégio E.E.B Antônio Guglielmi Sobrinho.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
