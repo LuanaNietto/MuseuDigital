@@ -2,11 +2,25 @@ import styled, { createGlobalStyle, css } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap');
-  
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    max-width: 100%;
+    width: 100%;
+    overflow-x: hidden; /* Impede scroll horizontal */
+  }
+
 `;
 
 export const Overlay = styled.div`
   min-height: 100%;
+  height: 100%;
+  width: 100%;
   background: #222222;
   margin: 0;
   font-family: 'Helvetica world', sans-serif;
@@ -14,8 +28,8 @@ export const Overlay = styled.div`
 
 //-----------------------HOME PAGE----------------------------
 export const FullPage = styled.div`
-  min-height: 100vh;
-  min-width: 100vw;
+  min-height: 100%;
+  min-width: 100%;
   height: 100vh;
   width: 100vw;
   background: #e1e1e1;
@@ -186,10 +200,12 @@ export const AboutText = styled.p`
 
 // ACERVO----------------------------------------------------------------
 export const ConhecaContainer = styled.section`
-  max-width: 100%px;
-  margin: 0px auto 0 auto;
-  padding: 22px 0 0 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  // height: 100vh;
+  width: 100vw;
   background: #e1e1e1;
+  font-family: 'Helvetica world', sans-serif;
 `;
 
 export const ConhecaTitle = styled.h3`

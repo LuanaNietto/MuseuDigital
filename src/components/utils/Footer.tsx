@@ -14,7 +14,8 @@ const Footer = styled.footer<{ $bgColor?: string; $color?: string }>`
 `;
 
 const FooterBlock = styled.div`
-  max-width: 100%;
+  max-width: 100vw;
+  width: 100vw;
   margin: 0 auto;
   text-align: center;
 `;
