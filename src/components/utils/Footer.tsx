@@ -35,7 +35,7 @@ export const ContactFooter: React.FC<ContactFooterProps> = ({
         <p>Escola: E.E.B Antônio Guglielmi Sobrinho</p>
         <p>Professor: Natan de Oliveira Rezende</p>
         <p>Turma: 202</p>
-        <p style={{fontSize: '10px', color: '#808080'}}>Desenvolvido por Luana Nietto</p>
+        <p style={{fontSize: '11px', color: '#808080'}}>Desenvolvido por Luana Nietto</p>
       </FooterBlock>
     </Footer>
   );

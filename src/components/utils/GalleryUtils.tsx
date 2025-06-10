@@ -39,13 +39,13 @@ export class GalleryUtils {
                 alt={item.name}
                 loading="lazy"
               />
-              <GalleryOverlay>
+              {/* <GalleryOverlay>
                 <GalleryOverlayContent>
                   <GalleryTitle>{item.name}</GalleryTitle>
-                  <GalleryAuthor>Por: {item.autor}</GalleryAuthor>
+                  <GalleryAuthor> {item.autor}</GalleryAuthor>
                   <GalleryDesc>{item.desc}</GalleryDesc>
                 </GalleryOverlayContent>
-              </GalleryOverlay>
+              </GalleryOverlay> */}
               <ExpandButton 
                 onClick={() => openModal(item.src, item.name)} 
                 aria-label="Expandir imagem"
