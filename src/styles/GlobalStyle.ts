@@ -1,7 +1,5 @@
 import styled, { createGlobalStyle, css } from 'styled-components';
 
-import { BrowserRouter as Link } from 'react-router-dom';
-
 export const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap');
   
@@ -427,23 +425,6 @@ export const Divider = styled.hr`
 `;
 
 // MEMORIAS---------------------------------------------------------------------
-
-
-// ----------------FOOTER-------------------
-export const Footer = styled.footer`
-  background: #222222;
-  color: #e1e1e1;
-  text-align: center;
-  padding: 10px 8vw 10px 8vw;
-  font-family: 'Helvetica world', sans-serif;
-`;
-
-export const FooterBlock = styled.div`
-  max-width: 400px;
-  margin: auto;
-`;
-
-// ----------------FOOTER-------------------
 
 // Carrossel central grande (tipo Bootstrap)
 export const MainCarousel = styled.section`
